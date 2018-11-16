@@ -1,0 +1,191 @@
+@import url('./mixin.less');
+@import url('./theme.less');
+
+// 清除浮动
+.clearfix::after {
+    clear: both;
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+// 盒模型垂直布局
+.flex_v {
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+/* 子元素垂直居中 */
+.flex_align_center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* 子元素水平居中 */
+.flex_pack_center {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* 子元素两端对齐 */
+.flex_justify {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.channel_top_info {
+    color: @theme;
+    line-height: .5rem;
+    text-align: center;
+    font-size:14px;
+}
+
+.popup1 {
+    height: 100%;
+}
+
+.popup0 {
+    background-color: #fff;
+    .popup-title {
+        // height: 0.8rem;
+        margin: 0 0.24rem;
+        text-align: center;
+        line-height: 0.8rem;
+        font-size: 0.28rem;
+        color: #666;
+        .border-1px-b();
+        .poput-title-tips {
+            margin-top: -0.07rem;
+            padding: 0 0.16rem 0.33rem; //   padding-bottom: 0.33rem;
+            text-align: left;
+            line-height: 0.35rem;
+            font-size: 0.28rem;
+            color: #353535;
+        }
+    }
+    .popup-btn {
+        padding: 0.3rem 0.4rem;
+        button {
+            // border-radius: 2px;
+        }
+    }
+}
+
+.info-title {
+    //信息标题
+    height: 0.8rem;
+    padding: 0 @page-space;
+    margin: 0.2rem auto 0;
+    line-height: 0.8rem;
+    background: #fff;
+    h1 {
+        .border-1px-b();
+        font-size: 0.28rem;
+        color: #666666;
+    }
+}
+
+// 左侧红点
+.left_circle{
+    display: block;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    background: #F94C50;
+}
+// icon标题
+.page_icon_title{
+    margin: .4rem 0;
+    display: flex;
+    justify-content: center;
+    height: .6rem;
+    line-height:.6rem;
+    text-align: center;
+    i {
+        display: block;
+        height:.32rem;
+        width:.32rem;
+        margin:.18rem .1rem 0 0;
+        background-size:100%;
+        .bg-img(home_head_decoration);
+    }
+    span {
+        color: @theme-black;
+        font-size:18px;
+        font-weight: 600;
+    }
+}
+
+/* 解决外边距溢出 */
+.clear_margin:before{
+    content: "";
+    display: table;
+}
+
+// 图片文字
+div .vux-flexbox .vux-flexbox-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+// placeholder样式
+::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #D8D8D8;
+}
+
+.child-vertical-middle {
+    &:after {
+        display: inline-block;
+        content: '';
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+    }
+}
+
+//add by tp
+.row-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+//两行文字省略号
+.row-2-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+.row-3-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+.events-wrapper{
+    display: none;
+}
