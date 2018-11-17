@@ -3,9 +3,9 @@ const pageView = r => require.ensure([], () => r(require('../pages/index')), 'pa
 const homeView = r => require.ensure([], () => r(require('../pages/home/index')), 'homeView')
 const home = r => require.ensure([], () => r(require('../pages/home/home')), 'home')
 
-// hello
-const HelloView = r => require.ensure([], () => r(require('../pages/hello/index')), 'HelloView')
-const Hello = r => require.ensure([], () => r(require('../pages/hello/Hello')), 'Hello')
+// demo
+const demoView = r => require.ensure([], () => r(require('../pages/demo/index')), 'demoView')
+const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
 
 // 案例
 const casesView = r => require.ensure([], () => r(require('../pages/cases/index')), 'casesView')
@@ -151,6 +151,22 @@ export default [{
           component: eCommerce,
           meta: {
               title: '生活电商',
+              isShowBack: false
+          }
+        },
+      ]
+    },
+    {
+      path: 'demo',
+      component: demoView,
+      children: [
+        // linkUs
+        {
+          name: 'demo',
+          path: '/',
+          component: demo,
+          meta: {
+              title: 'demo',
               isShowBack: false
           }
         },

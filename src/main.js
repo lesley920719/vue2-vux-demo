@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import routes from './router'
+import Vuex from 'vuex'
+import store from './store/index'
 import VueRouter from 'vue-router'
 import './assets/less/reset.css'
 import './assets/less/base.less'
@@ -13,6 +15,7 @@ import { httpGet, httpPost } from './service/index';  // axios
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
+Vue.use(Vuex)
 
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
@@ -50,6 +53,7 @@ router.beforeEach((to, from, next) => {
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   render: h => h(App)
 })
