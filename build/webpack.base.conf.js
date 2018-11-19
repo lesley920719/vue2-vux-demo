@@ -27,7 +27,7 @@ var webpackConfig = {
       'utils': resolve('./src/utils'),
       'service': resolve('./src/service'),
       'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
-      'swiper': 'swiper/dist/js/swiper.js',
+      'swiper': 'swiper/dist/js/swiper.js', // 解决打包时报错：Unexpected token: name (Dom7) [./node_modules/dom7/dist/dom7.modular.js:16,0] （引入swiper4的原因）
     }
   },
   module: {
@@ -49,7 +49,7 @@ var webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-baidu-map')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-baidu-map')] // resolve('node_modules/vue-baidu-map')解决报错：ERROR in static/js/linkUs.8df365ac7036339650c7.js from UglifyJs Unexpected token: operator (>) [./~/vue-baidu-map/components/base/bindEvent.js:6,0] （原因：babel没有把node_modules/vue-baidu-map目录下的js文件转换成es5语法）
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
