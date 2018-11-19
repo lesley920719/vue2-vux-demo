@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/
-# 需要上传dist文件夹
-# dist/
+dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

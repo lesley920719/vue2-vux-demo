@@ -8,7 +8,6 @@ import store from './store/index'
 import VueRouter from 'vue-router'
 import './assets/less/reset.css'
 import './assets/less/base.less'
-import 'swiper/dist/css/swiper.min.css' // swiper css
 import { AlertPlugin, ToastPlugin, LoadingPlugin, ConfirmPlugin, Flexbox, FlexboxItem } from 'vux'  // vux组件
 import { httpGet, httpPost } from './service/index';  // axios
 

@@ -675,6 +675,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
+@import '../../assets/less/swiper.min.css';
 @import '../../assets/less/mixin.less';
 @import '../../assets/less/theme.less';
 .content {padding-bottom: 0!important}

@@ -27,6 +27,7 @@ var webpackConfig = {
       'utils': resolve('./src/utils'),
       'service': resolve('./src/service'),
       'jquery': path.resolve(__dirname, '../node_modules/jquery/src/jquery'),
+      'swiper': 'swiper/dist/js/swiper.js',
     }
   },
   module: {
@@ -48,7 +49,7 @@ var webpackConfig = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-baidu-map')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
