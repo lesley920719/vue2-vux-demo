@@ -1,6 +1,8 @@
+import timeFormat from '@/utils/timeFormat'
 import { httpGet, httpPost } from '@/service/index';  // axios
 
 function install (Vue, options) {
+    /* 自定义指令 */
     // 解决键盘挡住输入框指令
     Vue.directive('keyBoard', {
       inserted: function (el) {
@@ -12,12 +14,18 @@ function install (Vue, options) {
         }, false)
       }
     })
+    // 自动聚焦
+    Vue.directive('focus', {
+      inserted (el, { value }) {
+        if (value) el.focus()
+      }
+    })
   
     Vue.prototype.regex = {
       phone: /^(0|86|17951)?(13[0-9]|15[012356789]|17[35678]|18[0-9]|14[57]|19[0-9]|16[0-9])[0-9]{8}$/,
       idCard: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/
     }
-  
+    /* 全局filter */
     // 价格过滤器 格式 ￥20.00
     Vue.filter('currency', (value) => {
       if (!value) return '￥0.00'
@@ -29,18 +37,8 @@ function install (Vue, options) {
       if (!value) return '0.00元'
       return `${(value / 100).toFixed(2)}元`
     })
-  
-    // 自动聚焦
-    Vue.directive('focus', {
-      inserted (el, { value }) {
-        if (value) el.focus()
-      }
-    })
-  
-    // 全局filter
-    Vue.filter('filterPrice', function (value) { // 价格过滤器 格式 20.00
-      if (!value) return '$0.00'
-      return `$${(value / 100).toFixed(2)}`
+    Vue.filter('filterTime', function (value, format = 'YYYY/MM/DD hh:mm:ss') { // 时间过滤器
+      return timeFormat(value, format)
     })
   
     // 4. 添加实例方法
