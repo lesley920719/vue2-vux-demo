@@ -21,6 +21,7 @@ export default {
 
   },
   created() {
+    this.$session.set('userInfo',{name:"lesley"});
     // this.$store.dispatch('setUserInfo', { 'userId': 45315443654 });
     // this.setUserInfo({ userName: 'lesley', userId: 134534 });
     this.$store.commit('setUserInfo', { userName: 'lesley', userId: 1345345345 });

@@ -9,7 +9,7 @@ import VueRouter from 'vue-router'
 import './assets/less/reset.css'
 import './assets/less/base.less'
 import { AlertPlugin, ToastPlugin, LoadingPlugin, ConfirmPlugin, Flexbox, FlexboxItem } from 'vux'  // vux组件
-import { httpGet, httpPost } from './service/index';  // axios
+import GlobalFunction from '@/utils/global'
 
 Vue.config.productionTip = false
 
@@ -23,8 +23,8 @@ Vue.use(ConfirmPlugin)
 Vue.component('flexbox', Flexbox)
 Vue.component('flexbox-item', FlexboxItem)
 
-Vue.prototype.$get = httpGet; //get请求
-Vue.prototype.$post = httpPost; //post 请求
+// 全局自定义函数
+Vue.use(GlobalFunction)
 
 // 引入mockjs
 require('./service/mock.js')
