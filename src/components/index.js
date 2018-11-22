@@ -9,6 +9,9 @@ export const vpCaseDialog = require('./case/case-dialog.vue'); // 案例弹窗
 //回到顶部
 export const vpToTop = require('./top/to-top.vue');
 
+// nav 滑动导航
+export const vpNavScroll = require('./nav/nav-scroll.vue');
+
 // //页面状态组件
 // export const vpPageStatus = require('./page/status.vue');
 // export const vpPageResult = require('./page/result.vue');

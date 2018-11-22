@@ -58,7 +58,7 @@ export default {
   background: #ffffff;
   overflow-x: hidden;
   .content {
-    padding-bottom: 1rem;
+    padding:0.88rem 0 1rem;
     position: relative;
     // flex: 1 1 0;
     // overflow-x: hidden;

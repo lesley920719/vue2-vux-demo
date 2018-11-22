@@ -6,6 +6,7 @@ const home = r => require.ensure([], () => r(require('../pages/home/home')), 'ho
 // demo
 const demoView = r => require.ensure([], () => r(require('../pages/demo/index')), 'demoView')
 const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
+const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
 
 // 案例
 const casesView = r => require.ensure([], () => r(require('../pages/cases/index')), 'casesView')
@@ -167,6 +168,15 @@ export default [{
           component: demo,
           meta: {
               title: 'demo',
+              isShowBack: false
+          }
+        },
+        {
+          name: 'navScroll',
+          path: 'navScroll',
+          component: navScroll,
+          meta: {
+              title: 'navScroll',
               isShowBack: false
           }
         },
