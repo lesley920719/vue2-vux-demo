@@ -135,8 +135,7 @@
         <div class="service_bg"></div>
       </div>
       <vp-bottom-tab :tabIndex = '0'></vp-bottom-tab>
-      <!-- <vp-to-top></vp-to-top> -->
-      <!-- <div class="to_top" v-show="showTop" @click="toTop"></div> -->
+      <vp-to-top></vp-to-top>
     </div>
 </template>
 <script>
@@ -161,36 +160,16 @@ export default {
         {advertImage:"./static/images/banner/home_banner_2@2x.png"},
         {advertImage:"./static/images/banner/home_banner_3@2x.png"},
       ],
-      // scrollTop: 0,
     }
   },
   mounted() {
-    // let _this = this;
-    // _this.$nextTick(function () {
-    //   document.body.addEventListener('scroll', _this.getScrollTop, false);  //滚动事件监听
-    // });
+    
   },
   computed:{
-    // showTop: function(){
-    //     let value = this.scrollTop>100?true:false;
-    //     return value;
-    // },
+    
   },
   methods: {
-    // toTop(i){
-    //   //参数i表示间隔的幅度大小，以此来控制速度
-    //   let distance = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    //   if (distance>0) {
-    //       var c=setTimeout(()=>this.toTop(i),16);
-    //   }else {
-    //       clearTimeout(c);
-    //   }
-    // },
-    // getScrollTop() {
-    //   console.log("================");
-    //   this.scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-    //   console.log(this.scrollTop);
-    // }
+    
   },
   created() {
 

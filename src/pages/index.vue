@@ -51,18 +51,18 @@ export default {
 
 <style lang="less" scoped>
 .wrapper {
-  display: flex;
+  // display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: auto;
   background: #ffffff;
   overflow-x: hidden;
   .content {
     padding-bottom: 1rem;
     position: relative;
-    flex: 1 1 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    // flex: 1 1 0;
+    // overflow-x: hidden;
+    // overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
 }
