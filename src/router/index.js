@@ -8,6 +8,10 @@ const demoView = r => require.ensure([], () => r(require('../pages/demo/index'))
 const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
 const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
 
+// 上传图片
+const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
+const uploadImg = r => require.ensure([], () => r(require('../pages/upload/uploadImg')), 'uploadImg')
+
 // 案例
 const casesView = r => require.ensure([], () => r(require('../pages/cases/index')), 'casesView')
 const cases = r => require.ensure([], () => r(require('../pages/cases/cases')), 'cases')
@@ -161,7 +165,7 @@ export default [{
       path: 'demo',
       component: demoView,
       children: [
-        // linkUs
+        // demo
         {
           name: 'demo',
           path: '/',
@@ -177,6 +181,22 @@ export default [{
           component: navScroll,
           meta: {
               title: 'navScroll',
+              isShowBack: false
+          }
+        },
+      ]
+    },
+    {
+      path: 'upload',
+      component: uploadView,
+      children: [
+        // uploadImg
+        {
+          name: 'uploadImg',
+          path: '/',
+          component: uploadImg,
+          meta: {
+              title: '上传图片',
               isShowBack: false
           }
         },
