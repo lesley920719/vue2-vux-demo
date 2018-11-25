@@ -7,6 +7,7 @@ const home = r => require.ensure([], () => r(require('../pages/home/home')), 'ho
 const demoView = r => require.ensure([], () => r(require('../pages/demo/index')), 'demoView')
 const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
 const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
+const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
 
 // 上传图片
 const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
@@ -181,6 +182,15 @@ export default [{
           component: navScroll,
           meta: {
               title: 'navScroll',
+              isShowBack: false
+          }
+        },
+        {
+          name: 'drawer',
+          path: 'drawer',
+          component: drawer,
+          meta: {
+              title: 'drawer',
               isShowBack: false
           }
         },
