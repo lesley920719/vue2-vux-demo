@@ -79,7 +79,7 @@ export default {
 
 </script>
 <style lang='less' scoped>
-@import "~@/assets/style/theme.less";
+@import '../../assets/less/theme.less';
 /**
  * showcase通用样式
  */

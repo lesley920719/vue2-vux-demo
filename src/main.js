@@ -11,8 +11,6 @@ import './assets/less/base.less'
 import { AlertPlugin, ToastPlugin, LoadingPlugin, ConfirmPlugin, Flexbox, FlexboxItem } from 'vux'  // vux组件
 import GlobalFunction from '@/utils/global'
 
-Vue.config.productionTip = false
-
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
@@ -25,6 +23,14 @@ Vue.component('flexbox-item', FlexboxItem)
 
 // 全局自定义函数
 Vue.use(GlobalFunction)
+
+/* 引入全局组件 */
+import { BaseButton, Drawer, LayoutScroll } from '@/components'
+
+/* 注册全局组件 */
+Vue.component('VpBaseButton', BaseButton) // 按钮
+Vue.component('Drawer', Drawer) // 弹窗盒子
+Vue.component('LayoutScroll', LayoutScroll) // 
 
 // 引入mockjs
 require('./service/mock.js')

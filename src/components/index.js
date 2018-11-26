@@ -14,18 +14,8 @@ export const vpNavScroll = require('./nav/nav-scroll.vue');
 
 /* 公共组件 */
 export const BaseButton = require('./layout/BaseButton.vue');
-export const CommonAlert = require('./layout/CommonAlert.vue');
-export const CommonAlertH = require('./layout/CommonAlertH.vue');
-export const CommonHeader = require('./layout/CommonHeader.vue');
-export const protocolAlert = require('./layout/protocolAlert.vue');
 export const Drawer = require('./layout/Drawer.vue');
-export const clerkAlert = require('./layout/clerkAlert.vue');
-export const PayList = require('./layout/PayList.vue');
 export const LayoutScroll = require('./layout/LayoutScroll.vue');
-export const Container = require('./layout/Container.vue');
-export const CommonShare = require('./layout/CommonShare.vue');
-export const ImgDefault = require('./layout/ImgDefault.vue');
-
 // //页面状态组件
 // export const vpPageStatus = require('./page/status.vue');
 // export const vpPageResult = require('./page/result.vue');

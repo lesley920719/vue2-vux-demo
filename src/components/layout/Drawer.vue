@@ -1,9 +1,10 @@
 <template>
   <div class="drawer">
+    <!-- 遮罩层 -->
     <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-        <div v-if="show" class="drawer-mask" @touchmove.prevent.stop @click="handleClose"></div>
-      </transition>
-
+      <div v-if="show" class="drawer-mask" @touchmove.prevent.stop @click="handleClose"></div>
+    </transition>
+    <!-- 选项 -->
     <transition enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
       <div v-if="show" class="drawer-content" :class="position">
         <slot/>
@@ -23,10 +24,6 @@ export default {
     position: {
       type: String,
       default: 'bottom'
-    },
-    isMaskClick: {
-      type: Boolean,
-      default: true
     }
   },
 
@@ -48,8 +45,7 @@ export default {
 
   methods: {
     handleClose () {
-      if (!this.isMaskClick) return
-      this.$emit('update:show', false)
+      this.show = false
     }
   }
 }
@@ -69,7 +65,7 @@ export default {
   position: fixed;
   background-color: #fff;
   z-index: 1000;
-
+  // 位置
   &.bottom {
     right: 0;
     bottom: 0;

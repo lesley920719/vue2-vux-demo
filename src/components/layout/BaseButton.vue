@@ -44,7 +44,7 @@ export default {
 </script>
 <style lang="less" scoped>
 
-@import '~@/assets/style/theme.less';
+@import '../../assets/less/theme.less';
 
 @theme-2: red;
 
