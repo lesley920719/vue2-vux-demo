@@ -28,9 +28,12 @@ export const httpPost = (url, params) => {
  ** let res = this.$httpImgUpoad(formdata) 只写传参
  **/
 const newAxios = axios.create({
-    transformRequest: [(data) => {
-        return data;
-    }]
+  headers: {
+		'Content-Type': 'multipart/form-data'
+	},
+  // transformRequest: [(data) => {
+  //     return data;
+  // }]
 });
 export const $httpImgUpoad = (params) => newAxios({
     url: API.upload.file,

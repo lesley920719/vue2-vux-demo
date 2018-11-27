@@ -10,10 +10,12 @@ import './assets/less/reset.css'
 import './assets/less/base.less'
 import { AlertPlugin, ToastPlugin, LoadingPlugin, ConfirmPlugin, Flexbox, FlexboxItem } from 'vux'  // vux组件
 import GlobalFunction from '@/utils/global'
+import Toast from '@/plugins/toast'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
+Vue.use(Toast)
 Vue.use(ToastPlugin)
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)

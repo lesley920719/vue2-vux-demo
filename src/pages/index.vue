@@ -59,10 +59,10 @@ export default {
   overflow-x: hidden;
   .content {
     padding:0.88rem 0 1rem;
-    position: relative;
+    // position: relative;
     // flex: 1 1 0;
-    // overflow-x: hidden;
-    // overflow-y: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
   }
 }

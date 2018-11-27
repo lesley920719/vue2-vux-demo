@@ -2,6 +2,7 @@ import Operators from './mock/operators'
 import Cases from './mock/cases'
 import Jobs from './mock/jobs'
 import JobDetail from './mock/jobDetail'
+import Minirefresh from './mock/minirefresh'
 // 引入mockjs
 const Mock = require('mockjs')
 // 获取 mock.Random 对象
@@ -29,3 +30,4 @@ Mock.mock('/news/operators', Operators)    // 运营商服务
 Mock.mock('/news/cases', Cases)    // 案例
 Mock.mock('/link/jobs', Jobs)    // 工作岗位
 Mock.mock('/link/jobDetail', JobDetail)    // 岗位详情
+Mock.mock('/demo/minirefresh', Minirefresh)    // minirefresh测试数据

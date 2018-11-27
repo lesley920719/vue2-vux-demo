@@ -11,11 +11,13 @@
         </div>
         <div class="vux-1px add_img_dev-border">
           <div class="add_img_dev" v-if="uploadLimit">
+            <!-- input[file]： "accept" 接受的文件类型 -->
             <input type="file" ref="uploadImg" accept="image/*" capture="camera" name="image" @change="preview($event)">
           </div>
         </div>
       </section>
     </section>
+    <button @click="ImgUpoad()">图片上传</button>
   </div>
 </template>
 <script>
@@ -23,18 +25,20 @@ export default {
   name: 'uploadImg',
   data () {
     return {
-      applyRefund: {  // 
-        imageurl: [],
+      applyRefund: {  // 选择的图片信息
+        imageurl: [], // 图片本地url
         imageurlFile: []
       },
-      imagelist: [], // 上传图片列表
+      imageUrlList: [], // 上传后获取的图片url
     }
   },
   methods: {
-    preview(event) {
-        //打开文件夹，查找图片
-        let files = event.target.files || event.dataTransfer.files;
-        let uploadFiles = event.currentTarget.files[0];
+    preview(event) {  // 当用户选择一个文件时，change事件触发，即调用preview方法
+        //打开文件夹，获取图片
+        let files = event.target.files || event.dataTransfer.files; //File对象可以是来自在<input>元素上选择文件后返回的FileList对象,也可以来自拖放操作生成的 DataTransfer对象
+        let uploadFiles = event.currentTarget.files[0]; // 当前选择的文件
+        //  File 对象提供了三个属性：name：文件名称  、 size：文件大小，按字节数(bytes)计算 、 type：文件的MIME type(例如图片为："image/png")
+        console.log('uploadFiles',uploadFiles); 
         if (!files.length) return;
         this.createImage(files, uploadFiles);
       },
@@ -57,10 +61,10 @@ export default {
         let imgUrl64 = {};
         // $this.applyRefund.imageurl.push(file[0]);
         // for (let i = 0; i < leng; i++) {
-          let reader = new FileReader();
-          reader.readAsDataURL(file[0]);
-          reader.onload = function (e) {
-            imgUrl64.url = e.target.result;
+          let reader = new FileReader();  // FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据
+          reader.readAsDataURL(file[0]);  //开始读取指定的Blob中的内容。一旦完成，result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容。
+          reader.onload = function (e) {  // 该事件在读取操作完成时触发
+            imgUrl64.url = e.target.result; // 图片url
             $this.applyRefund.imageurl.push(imgUrl64);
             $this.applyRefund.imageurlFile.push(uploadFiles);
           };
@@ -70,25 +74,23 @@ export default {
 
       // 上传图片
       async ImgUpoad() {
-        this.$toast('上传图片中...')
         let uploadFiles = this.applyRefund.imageurlFile;
-        for (let i = 0; i < uploadFiles.length; i++) {
-          var formdata = new FormData();
-          formdata.append("FormData", uploadFiles[i]); //获取文件法二
-          let res = await this.$httpImgUpoad(formdata);
+        if(uploadFiles.length){
+          this.$toast('上传图片中...')
+        }else{
+          this.$toast('请先选择图片...')
+        }
+        for (let i = 0; i < uploadFiles.length; i++) {  // 逐个文件上传
+          var formdata = new FormData();  // FormData对象用以将数据编译成键值对，以便用XMLHttpRequest来发送数据，如果表单enctype属性设为multipart/form-data ，则会使用表单的submit()方法来发送数据，从而，发送数据具有同样形式。
+          formdata.append("file", uploadFiles[i]); //append()方法来添加字段
+          console.dir(formdata);
+          return
+
+          let res = await this.$httpImgUpoad(formdata); // 上传接口
           if ( res && res.data.head.code === '100000') { // 上传图片成功
             let dataInfo = res.body;
-            // this.list.certificatesUrl = config.HOST_NAME + '/'  + dataInfo.fileId
-
-            // this.loadUserAdd() // 确认添加提交表单
-            let imgUrl =  config.HOST_NAME +"/"+ dataInfo.shortUrl
-            // console.log(imgUrl)
-            this.imagelist.push(imgUrl);
-            if (i == uploadFiles.length - 1) {
-              let imgpath = this.imagelist.join(",");
-              console.log(imgUrl)
-              this.loadUserAdd(imgUrl);
-            }
+            let imgUrl =  dataInfo.fullUrl
+            this.imageUrlList.push(imgUrl);
           } else {
             if (res.data.head instanceof Object) {
               this.$toast(res.data.head.msg)
@@ -217,6 +219,16 @@ export default {
         }
       }
     }
+  }
+  button {
+    border: 0;
+    background-color: #0F8EEB;
+    display: block;
+    width: 100%;
+    height: .8rem;
+    color: #ffffff;
+    font-size: .28rem;
+    text-align: center;
   }
 }
 </style>

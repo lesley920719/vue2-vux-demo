@@ -8,6 +8,7 @@ const demoView = r => require.ensure([], () => r(require('../pages/demo/index'))
 const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
 const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
 const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
+const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
 
 // 上传图片
 const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
@@ -191,6 +192,15 @@ export default [{
           component: drawer,
           meta: {
               title: 'drawer',
+              isShowBack: false
+          }
+        },
+        {
+          name: 'minirefresh',
+          path: 'minirefresh',
+          component: minirefresh,
+          meta: {
+              title: 'H5下拉刷新',
               isShowBack: false
           }
         },
