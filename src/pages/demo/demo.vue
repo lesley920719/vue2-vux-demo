@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <h3>demo</h3>
+    <h3>{{demo}}</h3>
     <!-- <p>this is {{userInfo.userName}} .</p> -->
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   name: 'demo',
   data () {
     return {
-      
+      demo:"this is a demo page"
     }
   },
   methods: {
