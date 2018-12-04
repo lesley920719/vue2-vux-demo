@@ -21,18 +21,20 @@ export default {
 
   },
   created() {
-    this.$session.set('userInfo',{name:"lesley"});
+    console.log(this.$store.state)
+    console.log(this.userInfo)
+    // this.$session.set('userInfo',{name:"lesley"});
     // this.$store.dispatch('setUserInfo', { 'userId': 45315443654 });
     // this.setUserInfo({ userName: 'lesley', userId: 134534 });
-    this.$store.commit('setUserInfo', { userName: 'lesley', userId: 1345345345 });
+    // this.$store.commit('setUserInfo', { userName: 'lesley', userId: 1345345345 });
     // 2s 之后返回双倍的值
-function doubleAfter2seconds(num) {
-    // return new Promise((resolve, reject) => {
-        // setTimeout(() => {
-            return {name: "await func"}
-        // }, 2000);
-    // } )
-}
+    function doubleAfter2seconds(num) {
+        // return new Promise((resolve, reject) => {
+            // setTimeout(() => {
+                return {name: "await func"}
+            // }, 2000);
+        // } )
+    }
     async function timeout() {
       let result = await doubleAfter2seconds(30);
     // console.log(result);
@@ -46,7 +48,7 @@ function doubleAfter2seconds(num) {
     console.log(123);
   },
   computed: mapState({
-    userInfo: state=>state.userInfo,
+    userInfo: state=>state.common.userInfo,
 
     // 传字符串参数 'userInfo' 等同于 `state => state.userInfo`
     // userInfoAlias: 'userInfo',

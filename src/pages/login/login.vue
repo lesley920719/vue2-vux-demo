@@ -58,6 +58,7 @@ export default {
 
       this.$store.commit('setUserInfo', data);
 
+
       _this.$vux.alert.show({
         title: '提示',
         content: '登录成功！点击“确定”前往首页',
@@ -80,7 +81,7 @@ export default {
     console.log(123);
   },
   computed: mapState({
-    userInfo: state=>state.userInfo,
+    userInfo: state=>state.common.userInfo,
 
     // 传字符串参数 'userInfo' 等同于 `state => state.userInfo`
     // userInfoAlias: 'userInfo',
