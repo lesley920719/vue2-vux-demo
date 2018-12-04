@@ -45,7 +45,15 @@ FastClick.attach(document.body)
 
 // 路由
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {  // 第三个参数 savedPosition 当且仅当 popstate 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用
+    // return 期望滚动到哪个的位置
+    if (savedPosition) {
+      return savedPosition  // 像浏览器的原生表现那样:回到历史记录位置
+    } else {
+      return { x: 0, y: 0 } // 让页面滚动到顶部
+    }
+  }
 })
 
 router.beforeEach((to, from, next) => {
