@@ -10,6 +10,9 @@ const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScro
 const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
 const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
 
+// 登录
+const login = r => require.ensure([], () => r(require('../pages/login/login')), 'login')
+
 // 上传图片
 const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
 const uploadImg = r => require.ensure([], () => r(require('../pages/upload/uploadImg')), 'uploadImg')
@@ -58,13 +61,22 @@ export default [{
       ]
     },
     {
+      name: 'login',
+      path: 'login',
+      component: login,
+      meta: {
+        title: '登录',
+        isShowBack: false
+      }
+    },
+    {
       path: 'cases',
       component: casesView,
       children: [
         // cases
         {
           name: 'cases',
-          path: '',
+          path: '/',
           component: cases,
           meta: {
               title: '运营商服务',
