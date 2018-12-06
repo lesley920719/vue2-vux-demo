@@ -9,6 +9,7 @@ const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'de
 const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
 const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
 const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
+const qrcode = r => require.ensure([], () => r(require('../pages/demo/qrcode')), 'qrcode') // qrcode二维码
 
 // 登录
 const login = r => require.ensure([], () => r(require('../pages/login/login')), 'login')
@@ -213,6 +214,15 @@ export default [{
           component: minirefresh,
           meta: {
               title: 'H5下拉刷新',
+              isShowBack: false
+          }
+        },
+        {
+          name: 'qrcode',
+          path: 'qrcode',
+          component: qrcode,
+          meta: {
+              title: 'url生成二维码',
               isShowBack: false
           }
         },
