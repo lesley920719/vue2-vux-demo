@@ -13,6 +13,11 @@ import GlobalFunction from '@/utils/global'
 import Toast from '@/plugins/toast'
 import NProgress from 'nprogress' // progress bar 页面加载进度条
 import 'nprogress/nprogress.css'// progress bar style
+import VueLazyload from 'vue-lazyload'
+
+Vue.use(VueLazyload, {
+  loading: require('./assets/images/default.jpg')
+})
 
 Vue.use(VueRouter)
 Vue.use(Vuex)

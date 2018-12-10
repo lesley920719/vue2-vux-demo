@@ -10,6 +10,7 @@ const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScro
 const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
 const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
 const qrcode = r => require.ensure([], () => r(require('../pages/demo/qrcode')), 'qrcode') // qrcode二维码
+const listView = r => require.ensure([], () => r(require('../pages/demo/listView')), 'listView') // 右侧字母导航
 
 // 登录
 const login = r => require.ensure([], () => r(require('../pages/login/login')), 'login')
@@ -223,6 +224,15 @@ export default [{
           component: qrcode,
           meta: {
               title: 'url生成二维码',
+              isShowBack: false
+          }
+        },
+        {
+          name: 'listView',
+          path: 'listView',
+          component: listView,
+          meta: {
+              title: '字母导航',
               isShowBack: false
           }
         },

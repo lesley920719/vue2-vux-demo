@@ -46,7 +46,6 @@ export default {
         this.$vux.toast.text("请输入昵称")
         return
       }
-      console.log(PHONE)
       if(!PHONE.test(_this.phone)){
         this.$vux.toast.text("请输入正确的手机号")
         return
@@ -72,13 +71,7 @@ export default {
 
   },
   created() {
-    // this.$session.set('userInfo',{name:"lesley"});
-    // this.$store.dispatch('setUserInfo', { 'userId': 45315443654 });
-    // this.setUserInfo({ userName: 'lesley', userId: 134534 });
-    // this.$store.commit('setUserInfo', { userName: 'lesley', userId: 1345345345 });
-    // 2s 之后返回双倍的值
-
-    console.log(123);
+    
   },
   computed: mapState({
     userInfo: state=>state.common.userInfo,
