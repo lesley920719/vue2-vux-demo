@@ -1,7 +1,15 @@
 <template>
   <div class="wrapper">
     <vp-header-page :isShowBack="isShowBack" :title="title"></vp-header-page>
-    <router-view class="content"></router-view>
+    <!-- 结合router，缓存部分页面:使用$route.meta的keepAlive属性 -->
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive" class="content">
+        <!-- 这里是会被缓存的视图组件 -->
+      </router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive" class="content">
+      <!-- 这里是会被缓存的视图组件 -->
+    </router-view>
   </div>
 </template>
 

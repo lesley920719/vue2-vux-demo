@@ -64,16 +64,17 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
   document.title = to.meta.title || '微信公众号'
-  // next()
-  if(!Vue.prototype.$session.get('common').userInfo){ // 有无登录信息
-    if(to.path=='/login'){ //如果是登录页面路径，就直接next()
-      next();
-    } else { //不然就跳转到登录
-      next('/login');
-    }
-  }else{
-    next()
-  }
+  console.log('each', from.path)
+  next()
+  // if(!Vue.prototype.$session.get('common').userInfo){ // 有无登录信息
+  //   if(to.path=='/login'){ //如果是登录页面路径，就直接next()
+  //     next();
+  //   } else { //不然就跳转到登录
+  //     next('/login');
+  //   }
+  // }else{
+  //   next()
+  // }
   NProgress.done() // if current page is dashboard will not trigger	afterEach hook, so manually handle it
   // if(to.name == 'home'){
   //     if(!store.state.client.commonData.userId){

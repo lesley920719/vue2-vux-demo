@@ -42,6 +42,12 @@ const digitalChannel = r => require.ensure([], () => r(require('../pages/channel
 const energizeChannel = r => require.ensure([], () => r(require('../pages/channel/energizeChannel')), 'energizeChannel') // 渠道赋能
 const eCommerce = r => require.ensure([], () => r(require('../pages/channel/eCommerce')), 'eCommerce')  // 生活电商
 
+// keep-alive 页面缓存
+const keepAliveView = r => require.ensure([], () => r(require('../pages/keepAlive/index')), 'keepAliveView')
+const keepAliveA = r => require.ensure([], () => r(require('../pages/keepAlive/a')), 'keepAliveA') // A页面默认缓存
+const keepAliveB = r => require.ensure([], () => r(require('../pages/keepAlive/b')), 'keepAliveB') // B页面跳转到A，A页面需要缓存
+const keepAliveC = r => require.ensure([], () => r(require('../pages/keepAlive/c')), 'keepAliveC')  // C页面跳转到A，A页面不需要被缓存
+
 export default [{
   path: '/',
   component: pageView,
@@ -250,6 +256,40 @@ export default [{
           meta: {
               title: '上传图片',
               isShowBack: false
+          }
+        },
+      ]
+    },
+    {
+      path: 'keepALive',
+      component: keepAliveView,
+      children: [
+        {
+          name: 'keepAliveA',
+          path: '/',
+          component: keepAliveA,
+          meta: {
+              title: 'keep-Alive A页面',
+              isShowBack: true,
+              keepAlive: true // 默认需要被缓存
+          }
+        },
+        {
+          name: 'keepAliveB',
+          path: '/b',
+          component: keepAliveB,
+          meta: {
+              title: 'keep-Alive B页面',
+              isShowBack: true,
+          },
+        },
+        {
+          name: 'keepAliveC',
+          path: '/c',
+          component: keepAliveC,
+          meta: {
+              title: 'keep-Alive C页面',
+              isShowBack: true,
           }
         },
       ]
