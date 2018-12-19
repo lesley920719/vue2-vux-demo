@@ -8,20 +8,21 @@ function resolve (dir) {
 }
 
 var webpackConfig = {
-  entry: {
+  entry: {  // 这里应用程序开始执行,入口文件
     app: './src/main.js'
   },
-  output: {
-    path: config.build.assetsRoot,
-    filename: 'js/[name].js',
-    chunkFilename: 'js/[name].js?t=[hash:7]',
+  output: { // webpack 如何输出结果的相关选项
+    path: config.build.assetsRoot,  // 所有输出文件的目标路径：必须是绝对路径（使用 Node.js 的 path 模块）
+    filename: 'js/[name].js', // 「入口分块(entry chunk)」的文件名模板（出口分块？）
+    chunkFilename: 'js/[name].js?t=[hash:7]', 
+    // 输出解析文件的目录，url 相对于 HTML 页面
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
-  resolve: {
+  resolve: {  // 解析模块请求的选项
     extensions: ['.js', '.vue', '.json'],
-    alias: {
+    alias: {  // 模块别名列表
       '@': resolve('src'),
       'components': resolve('./src/components'),
       'utils': resolve('./src/utils'),
@@ -30,8 +31,8 @@ var webpackConfig = {
       'swiper': 'swiper/dist/js/swiper.js', // 解决打包时报错：Unexpected token: name (Dom7) [./node_modules/dom7/dist/dom7.modular.js:16,0] （引入swiper4的原因）
     }
   },
-  module: {
-    rules: [
+  module: { // 关于模块配置
+    rules: [  // 模块规则（配置 loader、解析器等选项）
       // {
       //   test: /\.(js|vue)$/,
       //   loader: 'eslint-loader',

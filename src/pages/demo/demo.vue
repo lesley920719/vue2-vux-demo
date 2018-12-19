@@ -1,7 +1,20 @@
 <template>
   <div class="demo">
     <h3>{{demo}}</h3>
-    <!-- <p>this is {{userInfo.userName}} .</p> -->
+    <ul class="list">
+      <li>
+        <img src="../../../static/images/banner/contact_banner_1@2x.png" alt="">
+        <p>hello</p>
+      </li>
+      <li>
+        <img src="../../../static/images/banner/contact_banner_1@2x.png" alt="">
+        <p>hello</p>
+      </li>
+      <li>
+        <img src="../../../static/images/banner/contact_banner_1@2x.png" alt="">
+        <p>hello</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -63,7 +76,27 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="less">
   h3{font-size:18px;font-weight:400}
   button { width: .5rem; }
+  ul{
+    display: flex;
+    flex:1;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding:30px;
+    height: 10rem;
+    overflow-y: scroll;
+    align-content:flex-start;
+    align-items:flex-start;
+    li {
+      width:45%;
+      font-size:14px;
+      margin-bottom:20px;
+      img {
+        width:100%;
+        margin-top:15px;
+      }
+    }
+  }
 </style>

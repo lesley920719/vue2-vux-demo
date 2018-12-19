@@ -63,7 +63,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   NProgress.start() // start progress bar
-  document.title = to.meta.title || '微信公众号'
+  document.title = to.meta.title || 'lesley\'s demo'
   console.log('each', from.path)
   next()
   // if(!Vue.prototype.$session.get('common').userInfo){ // 有无登录信息
