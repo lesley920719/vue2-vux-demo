@@ -62,7 +62,7 @@ export default [{
           path: '/',
           component: home,
           meta: {
-              title: '运营商服务',
+              title: '首页',
               isShowBack: false
           }
         },
@@ -87,7 +87,7 @@ export default [{
           path: '/',
           component: cases,
           meta: {
-              title: '运营商服务',
+              title: '案例',
               isShowBack: false
           }
         },
@@ -103,7 +103,7 @@ export default [{
           path: '/',
           component: aboutUs,
           meta: {
-              title: '运营商服务',
+              title: '关于我们',
               isShowBack: false
           }
         },
