@@ -1,9 +1,7 @@
 <template>
     <div class="join_us">
-      <div class="join_banner"></div>
       <div class="join_info clear_margin">
-        <p>深圳微品致远信息科技有限公司成立于2014年9月16日，注册资金1.1亿元，目前在职员工600多人，在全国20个省份设有当地市场及运营服务中心，我们致力成为提供用户经营的领导者，专业互联网解决方案提供者。</p>
-        <p>我们核心的服务领域涵盖电信运营商、金融（银行、保险、证券）、航空公司、大型零售集团、大型企业集团、政府智慧旅游以及农特精准扶贫电商。</p>
+        <p>我们的服务领域涵盖电信运营商、金融（银行、保险、证券）、航空公司、大型零售集团、大型企业集团、政府智慧旅游以及农特精准扶贫电商。</p>
       </div>
       <ul class="join_jobs clear_margin">
         <li v-for="(item, index) in jobs" :key="index" class="flex flex_align_center flex_justify">
@@ -47,12 +45,6 @@ export default {
 @import '../../assets/less/mixin.less';
 @import '../../assets/less/theme.less';
 .join_us {
-  .join_banner {
-    height: 2.9rem;
-    width:100%;
-    .bg-img(join_banner);
-    background-size:100%; 
-  }
   .join_info {
     width:6.4rem;
     margin: .3rem auto;

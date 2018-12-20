@@ -132,7 +132,6 @@
             <p>结合线下实体渠道优势和线上用户流量优势，线下为线上引流促活，线上为线下引客入店。</p>
           </div>
         </div>
-        <div class="service_bg"></div>
       </div>
       <vp-bottom-tab :tabIndex = '0'></vp-bottom-tab>
       <vp-to-top></vp-to-top>
@@ -352,12 +351,6 @@ export default {
           width:100%;
         }
       }
-    }
-    .service_bg {
-      .bg-img(image_home_background__2);
-      width:100%;
-      height: 2.78rem;
-      background-size:100%;
     }
   }
 }

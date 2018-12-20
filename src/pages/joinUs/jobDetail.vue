@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="job_email">
-                <a href="mailto:hr@vpclub.cn">简历投递邮箱：hr@vpclub.cn</a>
+                <a href="mailto:hr@lesley.cn">简历投递邮箱：hr@lesley.cn</a>
             </div>
         </div>
     </transition>

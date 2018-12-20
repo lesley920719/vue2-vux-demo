@@ -43,42 +43,6 @@
           </ul>
         </div>
       </div>
-      <div class="case_resolve">
-        <div class="page_icon_title clear_margin">
-          <i></i>
-          <span>四大解決方案</span>
-        </div>
-        <flexbox wrap="wrap" class="clear_margin">
-          <flexbox-item :span=" 1/2.2" @click.native="$router.push({path:'/channel/energizeChannel'})">
-            <p class="resolve_icon_1"></p>
-            <div>
-              <span>渠道赋能</span>
-              <i></i>
-            </div>
-          </flexbox-item>
-          <flexbox-item :span=" 1/2.2" @click.native="$router.push({path:'/channel/digitalChannel'})">
-            <p class="resolve_icon_2"></p>
-            <div>
-              <span>电子渠道</span>
-              <i></i>
-            </div>
-          </flexbox-item>
-          <flexbox-item :span=" 1/2.2" @click.native="$router.push({path:'/channel/eCommerce'})">
-            <p class="resolve_icon_3"></p>
-            <div>
-              <span>生活电商</span>
-              <i></i>
-            </div>
-          </flexbox-item>
-          <flexbox-item :span=" 1/2.2" @click.native="clickJump">
-            <p class="resolve_icon_4"></p>
-            <div>
-              <span>存量精销</span>
-              <i></i>
-            </div>
-          </flexbox-item>
-        </flexbox>
-      </div>
       <div class="case_intro">
         <div class="page_icon_title clear_margin">
           <i></i>
@@ -113,9 +77,7 @@ export default {
     console.log("cases")
   },
   methods: {
-    clickJump() {
-      location.href='https://pas.vpclub.cn/static/bigDataPamphlet/case.html';
-    }
+    
   }
 }
 </script>
@@ -178,57 +140,6 @@ export default {
           opacity: 1;
           line-height: .42rem;
         }
-      }
-    }
-  }
-  .case_resolve {
-    width: 6.6rem;
-    margin: 0 auto;
-    .vux-flexbox-item {
-      margin-top: .3rem!important;
-      margin-left: .5rem!important;
-      &:first-child{
-        // margin-top: .3rem!important;
-        margin-left: 0!important;
-      }
-      &:nth-child(3){
-        margin-left: 0!important;
-      }
-      p {
-          display: block;
-          width: 3rem;
-          height: 2.26rem;
-          margin-bottom:.1rem;
-          background-size: 100%;
-      }
-      .resolve_icon_1{
-        .bg-img(case_image_1)
-      }
-      .resolve_icon_2{
-        .bg-img(case_image_2)
-      }
-      .resolve_icon_3{
-        .bg-img(case_image_3)
-      }
-      .resolve_icon_4{
-        .bg-img(case_image_4)
-      }
-      div {
-          font-size: 12px;
-          letter-spacing: 0;
-          color: @theme-black;
-          line-height: .28rem;
-          height: .28rem;
-          display: flex;
-          justify-content: center;
-          i {
-            display: block;
-            height: 0.28rem;
-            width: 0.28rem;
-            margin-left: .1rem;
-            .bg-img(case_enter);
-            background-size: 100%;
-          }
       }
     }
   }
