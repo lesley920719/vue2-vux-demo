@@ -34,7 +34,7 @@ export default {
             self.minirefresh = new MiniRefresh({
                 container: '#minirefresh',
                 down: { // 下拉刷新
-                    isLock: true,
+                    isLock: false,
                     // isAutoResetUpLoading: true,
                     callback() {
                         console.log('=======================')
@@ -85,7 +85,7 @@ export default {
             
     },
     created() {
-
+        console.log(this.$route.params)
     },
     mounted() {
         this.init() // 初始化MiniRefresh

@@ -6,6 +6,7 @@
     <div class="qrcanvas_vue">
       <qrcanvas :options="options"></qrcanvas>
     </div>
+    <div @click="jumpParams">params跳转</div>
   </div>
 </template>
 
@@ -23,7 +24,9 @@ export default {
     }
   },
   methods: {
-
+    jumpParams(){
+      this.$router.push({name: 'minirefresh', params: {name: 'lesley'}})
+    }
   },
   created() {
     this.options = Object.assign({}, this.options, {
