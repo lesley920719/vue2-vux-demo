@@ -19,6 +19,10 @@ const login = r => require.ensure([], () => r(require('../pages/login/login')), 
 const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
 const uploadImg = r => require.ensure([], () => r(require('../pages/upload/uploadImg')), 'uploadImg')
 
+// canvas signature
+const signatureView = r => require.ensure([], () => r(require('../pages/signature/index')), 'signatureView')
+const signature = r => require.ensure([], () => r(require('../pages/signature/signature')), 'signature')
+
 // 案例
 const casesView = r => require.ensure([], () => r(require('../pages/cases/index')), 'casesView')
 const cases = r => require.ensure([], () => r(require('../pages/cases/cases')), 'cases')
@@ -255,6 +259,22 @@ export default [{
           component: uploadImg,
           meta: {
               title: '上传图片',
+              isShowBack: false
+          }
+        },
+      ]
+    },
+    {
+      path: 'signature',
+      component: signatureView,
+      children: [
+        // uploadImg
+        {
+          name: 'signature',
+          path: '/',
+          component: signature,
+          meta: {
+              title: 'canvas signature',
               isShowBack: false
           }
         },
