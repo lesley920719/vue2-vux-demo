@@ -41,11 +41,16 @@ export default {
   methods: {
     preview(e) {  // 当用户选择一个文件时，change事件触发，即调用preview方法
         //打开文件夹，获取图片
-        let files = e.target.files || e.dataTransfer.files; //File对象可以是来自在<input>元素上选择文件后返回的FileList对象,也可以来自拖放操作生成的 DataTransfer对象
+        /*
+        * File对象
+        * 可以是来自在<input>元素上选择文件后返回的FileList对象
+        * 也可以来自拖放操作生成的 DataTransfer对象
+        * let files = this.$refs.uploadImg.files (即 input.files) 也可获取到File对象
+        * File 对象提供了三个属性：name：文件名称  、 size：文件大小，按字节数(bytes)计算 、 type：文件的MIME type(例如图片为："image/png") 
+        */
+        let files = e.target.files || e.dataTransfer.files || this.$refs.uploadImg.files;
         console.log(files)
         let uploadFiles = e.currentTarget.files[0]; // 当前选择的文件
-        // let uploadFiles = this.$refs.uploadImg.files[0];
-        //  File 对象提供了三个属性：name：文件名称  、 size：文件大小，按字节数(bytes)计算 、 type：文件的MIME type(例如图片为："image/png")
         console.log('uploadFiles',uploadFiles);
         if (!files.length) return;
         this.createImage(files, uploadFiles);
@@ -59,6 +64,12 @@ export default {
 
       // 异步读取文件
       async createImage(file, uploadFiles) {
+        /*
+        * URL.createObjectURL(object)会创建一个新的 URL 对象，即图片的URL地址
+        * 参数object为File 对象、 Blob 对象或MediaSource对象。
+        * createObjectURL是同步执行的。
+        * const src = URL.createObjectURL(file[0]);
+        */
         //获取图片呈现在页面上
         let $this = this;
         if (typeof FileReader === "undefined") {
@@ -69,24 +80,24 @@ export default {
         let imgUrl64 = {};
         // $this.applyRefund.imageurl.push(file[0]);
         // for (let i = 0; i < leng; i++) {
-          let reader = new FileReader();  // FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据
-          /* 
-          **FileReader有一下几种读取文件数据的方法
-            * 1）.readAsText(file,encoding);以纯文本的形式读取文件，将读取到的文件保存到result属性。encoding参数用于指定编码类型，是可选的。
-            * 2）.readAsDataURL(file);读取文件并将文件数据以URL形式保存到result属性中。（读取图像文件常用方法）
-            * 3）.readAsBinaryString(file);读取文件并将一个字符串保存在result属性中，字符串中的每个字符表示一字节。
-            * 4）.readAsArrayBuffer(file);读取文件并将一个包含文件内容的ArrayBuffer保存在result属性中。
-          */
-          reader.readAsDataURL(file[0]);  //开始读取指定的Blob中的内容。一旦完成，result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容。
-          /**
-           * FileReader提供了几个事件最有用的三个事件，progress,error,load,分别表示是否又读取了新数据，是否发生了错误，是否已经读完整个文件。
-           */
-          reader.onload = function (e) {  // 该事件在读取操作完成时触发
-            imgUrl64.url = e.target.result; // 图片url,同reader.result
-            $this.applyRefund.imageurl.push(imgUrl64);
-            $this.applyRefund.imageurlFile.push(uploadFiles);
-          };
-          this.$refs.uploadImg.value = '';
+        let reader = new FileReader();  // FileReader 对象允许Web应用程序异步读取存储在用户计算机上的文件（或原始数据缓冲区）的内容，使用 File 或 Blob 对象指定要读取的文件或数据
+        /* 
+        **FileReader有一下几种读取文件数据的方法
+          * 1）.readAsText(file,encoding);以纯文本的形式读取文件，将读取到的文件保存到result属性。encoding参数用于指定编码类型，是可选的。
+          * 2）.readAsDataURL(file);读取文件并将文件数据以URL形式保存到result属性中。（读取图像文件常用方法）
+          * 3）.readAsBinaryString(file);读取文件并将一个字符串保存在result属性中，字符串中的每个字符表示一字节。
+          * 4）.readAsArrayBuffer(file);读取文件并将一个包含文件内容的ArrayBuffer保存在result属性中。
+        */
+        reader.readAsDataURL(file[0]);  //开始读取指定的Blob中的内容。一旦完成，result属性中将包含一个data: URL格式的字符串以表示所读取文件的内容。
+        /**
+         * FileReader提供了几个事件最有用的三个事件，progress,error,load,分别表示是否又读取了新数据，是否发生了错误，是否已经读完整个文件。
+         */
+        reader.onload = function (e) {  // 该事件在读取操作完成时触发
+          imgUrl64.url = e.target.result; // 图片url,同reader.result
+          $this.applyRefund.imageurl.push(imgUrl64);
+          $this.applyRefund.imageurlFile.push(uploadFiles);
+        };
+        this.$refs.uploadImg.value = '';
         // }
       },
 

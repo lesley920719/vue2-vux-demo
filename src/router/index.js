@@ -7,6 +7,7 @@ const home = r => require.ensure([], () => r(require('../pages/home/home')), 'ho
 const demoView = r => require.ensure([], () => r(require('../pages/demo/index')), 'demoView')
 const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
 const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
+const circle = r => require.ensure([], () => r(require('../pages/demo/circle')), 'circle') // 圆环加载进度
 const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
 const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
 const qrcode = r => require.ensure([], () => r(require('../pages/demo/qrcode')), 'qrcode') // qrcode二维码
@@ -53,270 +54,279 @@ const keepAliveB = r => require.ensure([], () => r(require('../pages/keepAlive/b
 const keepAliveC = r => require.ensure([], () => r(require('../pages/keepAlive/c')), 'keepAliveC')  // C页面跳转到A，A页面不需要被缓存
 
 export default [{
-  path: '/',
-  component: pageView,
-  children: [
-    {
-      path: 'home',
-      component: homeView,
-      children: [
-        // 首页
+    path: '/',
+    component: pageView,
+    children: [
         {
-          name: 'home',
-          path: '/',
-          component: home,
-          meta: {
-              title: '首页',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      name: 'login',
-      path: 'login',
-      component: login,
-      meta: {
-        title: '登录',
-        isShowBack: false
-      }
-    },
-    {
-      path: 'cases',
-      component: casesView,
-      children: [
-        // cases
-        {
-          name: 'cases',
-          path: '/',
-          component: cases,
-          meta: {
-              title: '案例',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'aboutUs',
-      component: aboutUsView,
-      children: [
-        // aboutUs
-        {
-          name: 'aboutUs',
-          path: '/',
-          component: aboutUs,
-          meta: {
-              title: '关于我们',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'linkUs',
-      component: linkUsView,
-      children: [
-        // linkUs
-        {
-          name: 'linkUs',
-          path: '/',
-          component: linkUs,
-          meta: {
-              title: '联系我们',
-              isShowBack: true
-          }
-        },
-      ]
-    },
-    {
-      path: 'joinUs',
-      component: joinUsView,
-      children: [
-        // joinUs
-        {
-          name: 'joinUs',
-          path: '/',
-          component: joinUs,
-          meta: {
-              title: '加入我们',
-              isShowBack: true
-          }
+            path: 'home',
+            component: homeView,
+            children: [
+                // 首页
+                {
+                    name: 'home',
+                    path: '/',
+                    component: home,
+                    meta: {
+                        title: '首页',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'jobDetail',
-          path: 'jobDetail',
-          component: jobDetail,
-          meta: {
-              title: '岗位详情',
-              isShowBack: true
-          }
-        },
-      ]
-    },
-    {
-      path: 'channel',
-      component: channelView,
-      children: [
-        {
-          name: 'digitalChannel',
-          path: 'digitalChannel',
-          component: digitalChannel,
-          meta: {
-              title: '电子渠道',
-              isShowBack: false
-          }
+            name: 'login',
+            path: 'login',
+            component: login,
+            meta: {
+                title: '登录',
+                isShowBack: false
+            }
         },
         {
-          name: 'energizeChannel',
-          path: 'energizeChannel',
-          component: energizeChannel,
-          meta: {
-              title: '渠道赋能',
-              isShowBack: false
-          }
+            path: 'cases',
+            component: casesView,
+            children: [
+                // cases
+                {
+                    name: 'cases',
+                    path: '/',
+                    component: cases,
+                    meta: {
+                        title: '案例',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'eCommerce',
-          path: 'eCommerce',
-          component: eCommerce,
-          meta: {
-              title: '生活电商',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'demo',
-      component: demoView,
-      children: [
-        // demo
-        {
-          name: 'demo',
-          path: '/',
-          component: demo,
-          meta: {
-              title: 'demo',
-              isShowBack: false
-          }
+            path: 'aboutUs',
+            component: aboutUsView,
+            children: [
+                // aboutUs
+                {
+                    name: 'aboutUs',
+                    path: '/',
+                    component: aboutUs,
+                    meta: {
+                        title: '关于我们',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'navScroll',
-          path: 'navScroll',
-          component: navScroll,
-          meta: {
-              title: 'navScroll',
-              isShowBack: false
-          }
+            path: 'linkUs',
+            component: linkUsView,
+            children: [
+                // linkUs
+                {
+                    name: 'linkUs',
+                    path: '/',
+                    component: linkUs,
+                    meta: {
+                        title: '联系我们',
+                        isShowBack: true
+                    }
+                },
+            ]
         },
         {
-          name: 'drawer',
-          path: 'drawer',
-          component: drawer,
-          meta: {
-              title: 'drawer',
-              isShowBack: false
-          }
+            path: 'joinUs',
+            component: joinUsView,
+            children: [
+                // joinUs
+                {
+                    name: 'joinUs',
+                    path: '/',
+                    component: joinUs,
+                    meta: {
+                        title: '加入我们',
+                        isShowBack: true
+                    }
+                },
+                {
+                    name: 'jobDetail',
+                    path: 'jobDetail',
+                    component: jobDetail,
+                    meta: {
+                        title: '岗位详情',
+                        isShowBack: true
+                    }
+                },
+            ]
         },
         {
-          name: 'minirefresh',
-          path: 'minirefresh',
-          component: minirefresh,
-          meta: {
-              title: 'H5下拉刷新',
-              isShowBack: false
-          }
+            path: 'channel',
+            component: channelView,
+            children: [
+                {
+                    name: 'digitalChannel',
+                    path: 'digitalChannel',
+                    component: digitalChannel,
+                    meta: {
+                        title: '电子渠道',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'energizeChannel',
+                    path: 'energizeChannel',
+                    component: energizeChannel,
+                    meta: {
+                        title: '渠道赋能',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'eCommerce',
+                    path: 'eCommerce',
+                    component: eCommerce,
+                    meta: {
+                        title: '生活电商',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'qrcode',
-          path: 'qrcode',
-          component: qrcode,
-          meta: {
-              title: 'url生成二维码',
-              isShowBack: false
-          }
+            path: 'demo',
+            component: demoView,
+            children: [
+                // demo
+                {
+                    name: 'demo',
+                    path: '/',
+                    component: demo,
+                    meta: {
+                        title: 'demo',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'navScroll',
+                    path: 'navScroll',
+                    component: navScroll,
+                    meta: {
+                        title: 'navScroll',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'circle',
+                    path: 'circle',
+                    component: circle,
+                    meta: {
+                        title: 'circle',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'drawer',
+                    path: 'drawer',
+                    component: drawer,
+                    meta: {
+                        title: 'drawer',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'minirefresh',
+                    path: 'minirefresh',
+                    component: minirefresh,
+                    meta: {
+                        title: 'H5下拉刷新',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'qrcode',
+                    path: 'qrcode',
+                    component: qrcode,
+                    meta: {
+                        title: 'url生成二维码',
+                        isShowBack: false
+                    }
+                },
+                {
+                    name: 'listView',
+                    path: 'listView',
+                    component: listView,
+                    meta: {
+                        title: '字母导航',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'listView',
-          path: 'listView',
-          component: listView,
-          meta: {
-              title: '字母导航',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'upload',
-      component: uploadView,
-      children: [
-        // uploadImg
-        {
-          name: 'uploadImg',
-          path: '/',
-          component: uploadImg,
-          meta: {
-              title: '上传图片',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'signature',
-      component: signatureView,
-      children: [
-        // uploadImg
-        {
-          name: 'signature',
-          path: '/',
-          component: signature,
-          meta: {
-              title: 'canvas signature',
-              isShowBack: false
-          }
-        },
-      ]
-    },
-    {
-      path: 'keepALive',
-      component: keepAliveView,
-      children: [
-        {
-          name: 'keepAliveA',
-          path: '/',
-          component: keepAliveA,
-          meta: {
-              title: 'keep-Alive A页面',
-              isShowBack: true,
-              keepAlive: true // 默认需要被缓存
-          }
+            path: 'upload',
+            component: uploadView,
+            children: [
+                // uploadImg
+                {
+                    name: 'uploadImg',
+                    path: '/',
+                    component: uploadImg,
+                    meta: {
+                        title: '上传图片',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'keepAliveB',
-          path: '/b',
-          component: keepAliveB,
-          meta: {
-              title: 'keep-Alive B页面',
-              isShowBack: true,
-          },
+            path: 'signature',
+            component: signatureView,
+            children: [
+                // uploadImg
+                {
+                    name: 'signature',
+                    path: '/',
+                    component: signature,
+                    meta: {
+                        title: 'canvas signature',
+                        isShowBack: false
+                    }
+                },
+            ]
         },
         {
-          name: 'keepAliveC',
-          path: '/c',
-          component: keepAliveC,
-          meta: {
-              title: 'keep-Alive C页面',
-              isShowBack: true,
-          }
+            path: 'keepALive',
+            component: keepAliveView,
+            children: [
+                {
+                    name: 'keepAliveA',
+                    path: '/',
+                    component: keepAliveA,
+                    meta: {
+                        title: 'keep-Alive A页面',
+                        isShowBack: true,
+                        keepAlive: true // 默认需要被缓存
+                    }
+                },
+                {
+                    name: 'keepAliveB',
+                    path: '/b',
+                    component: keepAliveB,
+                    meta: {
+                        title: 'keep-Alive B页面',
+                        isShowBack: true,
+                    },
+                },
+                {
+                    name: 'keepAliveC',
+                    path: '/c',
+                    component: keepAliveC,
+                    meta: {
+                        title: 'keep-Alive C页面',
+                        isShowBack: true,
+                    }
+                },
+            ]
         },
-      ]
-    },
-    {
-      path: '*',
-      redirect: '/home'
-    }
-  ]
+        {
+            path: '*',
+            redirect: '/home'
+        }
+    ]
 }]
