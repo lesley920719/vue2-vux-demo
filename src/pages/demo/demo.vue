@@ -1,20 +1,7 @@
 <template>
   <div class="demo">
     <h3>{{demo}}</h3>
-    <ul class="list">
-      <li>
-        <img src="../../../static/images/banner/home_banner_1@2x.png" alt="">
-        <p>hello</p>
-      </li>
-      <li>
-        <img src="../../../static/images/banner/home_banner_1@2x.png" alt="">
-        <p>hello</p>
-      </li>
-      <li>
-        <img src="../../../static/images/banner/home_banner_1@2x.png" alt="">
-        <p>hello</p>
-      </li>
-    </ul>
+    
   </div>
 </template>
 
