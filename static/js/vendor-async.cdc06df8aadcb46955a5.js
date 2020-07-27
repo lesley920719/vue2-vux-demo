@@ -1,0 +1,1 @@
+webpackJsonp([0],{294:function(e,t,n){"use strict";function o(e,t){if(!/^javas/.test(e)&&e){"object"===(void 0===e?"undefined":c()(e))||t&&"string"==typeof e&&!/http/.test(e)?"object"===(void 0===e?"undefined":c()(e))&&!0===e.replace?t.replace(e):"BACK"===e?t.go(-1):t.push(e):window.location.href=e}}t.a=o;var i=n(20),c=n.n(i)}});
