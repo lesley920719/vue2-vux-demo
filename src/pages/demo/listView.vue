@@ -1,33 +1,39 @@
 <template>
-<div class="box" >
-  <div class="list-view" ref="listView">
-    <ul>
-      <li v-for="group in singers" class="list-group" :key="group.id" ref="listGroup">
-        <h2 class="list-group-title">{{ group.title }}</h2>
-        <ul>
-          <li v-for="item in group.items" class="list-group-item" :key="item.id">
-            <img v-lazy="item.avatar" class="avatar">
-            <span class="name">{{ item.name }}</span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <div class="list-shortcut">
+  <div class="box">
+    <div class="list-view"
+         ref="listView">
       <ul>
-        <li v-for="(item, index) in shortcutList"
-        class="item"
-        :data-index="index"
-        :key="item.id"
-        @touchstart="onShortcutStart"
-        @touchmove.stop.prevent="onShortcutMove"
-        :class="{'current': currentIndex === index}"
-        >
-          {{ item }}
+        <li v-for="group in singers"
+            class="list-group"
+            :key="group.id"
+            ref="listGroup">
+          <h2 class="list-group-title">{{ group.title }}</h2>
+          <ul>
+            <li v-for="item in group.items"
+                class="list-group-item"
+                :key="item.id">
+              <img v-lazy="item.avatar"
+                   class="avatar">
+              <span class="name">{{ item.name }}</span>
+            </li>
+          </ul>
         </li>
       </ul>
+      <div class="list-shortcut">
+        <ul>
+          <li v-for="(item, index) in shortcutList"
+              class="item"
+              :data-index="index"
+              :key="item.id"
+              @touchstart="onShortcutStart"
+              @touchmove.stop.prevent="onShortcutMove"
+              :class="{'current': currentIndex === index}">
+            {{ item }}
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -875,7 +881,7 @@ export default {
         this.currentIndex = 0
         return
       }
-      
+
       // 计算 currentIndex 的值
       for (let i = 0; i < this.listHeight.length - 1; i++) {
         let height1 = this.listHeight[i]
@@ -886,7 +892,7 @@ export default {
           return
         }
       }
-      
+
       // 当超 -newVal > 最后一个高度的时候
       // 因为 this.listHeight 有头尾，所以需要 - 2
       this.currentIndex = this.listHeight.length - 2
@@ -902,7 +908,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .box {
   position: fixed;
   width: 100%;
@@ -921,8 +927,8 @@ export default {
       line-height: 30px;
       padding-left: 20px;
       font-size: 12px;
-      color: #FFF;
-      background: #C20C0C;
+      color: #fff;
+      background: #c20c0c;
     }
     .list-group-item {
       display: flex;
@@ -952,14 +958,14 @@ export default {
     border-radius: 10px;
     text-align: center;
     background: rgba(167, 167, 167, 0.5);
-    font-family:Helvetica;
+    font-family: Helvetica;
     .item {
       padding: 3px;
       line-height: 1;
       color: black;
       font-size: 11px;
       &.current {
-        color: #C20C0C;
+        color: #c20c0c;
         // font-weight: bold;
       }
     }
