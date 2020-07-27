@@ -1,77 +1,64 @@
-const pageView = r => require.ensure([], () => r(require('../pages/index')), 'pages')
+const pageView = r => require.ensure([], () => r(require('@/pages/index')), 'pages')
 // 首页
-const homeView = r => require.ensure([], () => r(require('../pages/home/index')), 'homeView')
-const home = r => require.ensure([], () => r(require('../pages/home/home')), 'home')
+const homeView = () =>
+    import( /* webpackChunkName: "homeView" */ '@/pages/home/home.vue');
 
 // demo
-const demoView = r => require.ensure([], () => r(require('../pages/demo/index')), 'demoView')
-const demo = r => require.ensure([], () => r(require('../pages/demo/demo')), 'demo')
-const navScroll = r => require.ensure([], () => r(require('../pages/demo/navScroll')), 'navScroll') // 滑动nav
-const circle = r => require.ensure([], () => r(require('../pages/demo/circle')), 'circle') // 圆环加载进度
-const drawer = r => require.ensure([], () => r(require('../pages/demo/drawer')), 'drawer') // 滑动nav
-const minirefresh = r => require.ensure([], () => r(require('../pages/demo/minirefresh')), 'minirefresh') // 下拉刷新
-const qrcode = r => require.ensure([], () => r(require('../pages/demo/qrcode')), 'qrcode') // qrcode二维码
-const listView = r => require.ensure([], () => r(require('../pages/demo/listView')), 'listView') // 右侧字母导航
+const demoView = r => require.ensure([], () => r(require('@/pages/demo/index')), 'demoView')
+import demoRouter from "@/pages/demo/demo.rooting.js";
 
 // 登录
-const login = r => require.ensure([], () => r(require('../pages/login/login')), 'login')
+const login = r => require.ensure([], () => r(require('@/pages/login/login')), 'login')
 
 // 上传图片
-const uploadView = r => require.ensure([], () => r(require('../pages/upload/index')), 'uploadView')
-const uploadImg = r => require.ensure([], () => r(require('../pages/upload/uploadImg')), 'uploadImg')
+const uploadView = r => require.ensure([], () => r(require('@/pages/upload/index')), 'uploadView')
+const uploadImg = r => require.ensure([], () => r(require('@/pages/upload/uploadImg')), 'uploadImg')
 
 // canvas signature
-const signatureView = r => require.ensure([], () => r(require('../pages/signature/index')), 'signatureView')
-const signature = r => require.ensure([], () => r(require('../pages/signature/signature')), 'signature')
+const signatureView = r => require.ensure([], () => r(require('@/pages/signature/index')), 'signatureView')
+const signature = r => require.ensure([], () => r(require('@/pages/signature/signature')), 'signature')
 
 // 案例
-const casesView = r => require.ensure([], () => r(require('../pages/cases/index')), 'casesView')
-const cases = r => require.ensure([], () => r(require('../pages/cases/cases')), 'cases')
+const casesView = r => require.ensure([], () => r(require('@/pages/cases/index')), 'casesView')
+const cases = r => require.ensure([], () => r(require('@/pages/cases/cases')), 'cases')
 
 // 关于我们
-const aboutUsView = r => require.ensure([], () => r(require('../pages/aboutUs/index')), 'aboutUsView')
-const aboutUs = r => require.ensure([], () => r(require('../pages/aboutUs/aboutUs')), 'aboutUs')
+const aboutUsView = r => require.ensure([], () => r(require('@/pages/aboutUs/index')), 'aboutUsView')
+const aboutUs = r => require.ensure([], () => r(require('@/pages/aboutUs/aboutUs')), 'aboutUs')
 
 // 联系我们
-const linkUsView = r => require.ensure([], () => r(require('../pages/linkUs/index')), 'linkUsView')
-const linkUs = r => require.ensure([], () => r(require('../pages/linkUs/linkUs')), 'linkUs')
+const linkUsView = r => require.ensure([], () => r(require('@/pages/linkUs/index')), 'linkUsView')
+const linkUs = r => require.ensure([], () => r(require('@/pages/linkUs/linkUs')), 'linkUs')
 
 // 加入我们
-const joinUsView = r => require.ensure([], () => r(require('../pages/joinUs/index')), 'joinUsView')
-const joinUs = r => require.ensure([], () => r(require('../pages/joinUs/joinUs')), 'joinUs')
-const jobDetail = r => require.ensure([], () => r(require('../pages/joinUs/jobDetail')), 'jobDetail')
+const joinUsView = r => require.ensure([], () => r(require('@/pages/joinUs/index')), 'joinUsView')
+const joinUs = r => require.ensure([], () => r(require('@/pages/joinUs/joinUs')), 'joinUs')
+const jobDetail = r => require.ensure([], () => r(require('@/pages/joinUs/jobDetail')), 'jobDetail')
 
 // 渠道-电商
-const channelView = r => require.ensure([], () => r(require('../pages/channel/index')), 'channelView')
-const digitalChannel = r => require.ensure([], () => r(require('../pages/channel/digitalChannel')), 'digitalChannel') // 电子渠道
-const energizeChannel = r => require.ensure([], () => r(require('../pages/channel/energizeChannel')), 'energizeChannel') // 渠道赋能
-const eCommerce = r => require.ensure([], () => r(require('../pages/channel/eCommerce')), 'eCommerce')  // 生活电商
+const channelView = r => require.ensure([], () => r(require('@/pages/channel/index')), 'channelView')
+const digitalChannel = r => require.ensure([], () => r(require('@/pages/channel/digitalChannel')), 'digitalChannel') // 电子渠道
+const energizeChannel = r => require.ensure([], () => r(require('@/pages/channel/energizeChannel')), 'energizeChannel') // 渠道赋能
+const eCommerce = r => require.ensure([], () => r(require('@/pages/channel/eCommerce')), 'eCommerce')  // 生活电商
 
 // keep-alive 页面缓存
-const keepAliveView = r => require.ensure([], () => r(require('../pages/keepAlive/index')), 'keepAliveView')
-const keepAliveA = r => require.ensure([], () => r(require('../pages/keepAlive/a')), 'keepAliveA') // A页面默认缓存
-const keepAliveB = r => require.ensure([], () => r(require('../pages/keepAlive/b')), 'keepAliveB') // B页面跳转到A，A页面需要缓存
-const keepAliveC = r => require.ensure([], () => r(require('../pages/keepAlive/c')), 'keepAliveC')  // C页面跳转到A，A页面不需要被缓存
+const keepAliveView = r => require.ensure([], () => r(require('@/pages/keepAlive/index')), 'keepAliveView')
+const keepAliveA = r => require.ensure([], () => r(require('@/pages/keepAlive/a')), 'keepAliveA') // A页面默认缓存
+const keepAliveB = r => require.ensure([], () => r(require('@/pages/keepAlive/b')), 'keepAliveB') // B页面跳转到A，A页面需要缓存
+const keepAliveC = r => require.ensure([], () => r(require('@/pages/keepAlive/c')), 'keepAliveC')  // C页面跳转到A，A页面不需要被缓存
 
 export default [{
     path: '/',
     component: pageView,
     children: [
         {
-            path: 'home',
+            name: 'homeView',
+            path: '/home',
             component: homeView,
-            children: [
-                // 首页
-                {
-                    name: 'home',
-                    path: '/',
-                    component: home,
-                    meta: {
-                        title: '首页',
-                        isShowBack: false
-                    }
-                },
-            ]
+            meta: {
+                title: '首页',
+                isShowBack: false
+            }
         },
         {
             name: 'login',
@@ -86,7 +73,6 @@ export default [{
             path: 'cases',
             component: casesView,
             children: [
-                // cases
                 {
                     name: 'cases',
                     path: '/',
@@ -102,7 +88,6 @@ export default [{
             path: 'aboutUs',
             component: aboutUsView,
             children: [
-                // aboutUs
                 {
                     name: 'aboutUs',
                     path: '/',
@@ -118,7 +103,6 @@ export default [{
             path: 'linkUs',
             component: linkUsView,
             children: [
-                // linkUs
                 {
                     name: 'linkUs',
                     path: '/',
@@ -134,7 +118,6 @@ export default [{
             path: 'joinUs',
             component: joinUsView,
             children: [
-                // joinUs
                 {
                     name: 'joinUs',
                     path: '/',
@@ -189,80 +172,9 @@ export default [{
             ]
         },
         {
-            path: 'demo',
-            component: demoView,
-            children: [
-                // demo
-                {
-                    name: 'demo',
-                    path: '/',
-                    component: demo,
-                    meta: {
-                        title: 'demo',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'navScroll',
-                    path: 'navScroll',
-                    component: navScroll,
-                    meta: {
-                        title: 'navScroll',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'circle',
-                    path: 'circle',
-                    component: circle,
-                    meta: {
-                        title: 'circle',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'drawer',
-                    path: 'drawer',
-                    component: drawer,
-                    meta: {
-                        title: 'drawer',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'minirefresh',
-                    path: 'minirefresh',
-                    component: minirefresh,
-                    meta: {
-                        title: 'H5下拉刷新',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'qrcode',
-                    path: 'qrcode',
-                    component: qrcode,
-                    meta: {
-                        title: 'url生成二维码',
-                        isShowBack: false
-                    }
-                },
-                {
-                    name: 'listView',
-                    path: 'listView',
-                    component: listView,
-                    meta: {
-                        title: '字母导航',
-                        isShowBack: false
-                    }
-                },
-            ]
-        },
-        {
             path: 'upload',
             component: uploadView,
             children: [
-                // uploadImg
                 {
                     name: 'uploadImg',
                     path: '/',
@@ -278,7 +190,6 @@ export default [{
             path: 'signature',
             component: signatureView,
             children: [
-                // uploadImg
                 {
                     name: 'signature',
                     path: '/',
@@ -325,8 +236,13 @@ export default [{
             ]
         },
         {
+            path: 'demo',
+            component: demoView,
+            children: demoRouter
+        },
+        {
             path: '*',
-            redirect: '/home'
+            redirect: '/demo'
         }
     ]
 }]

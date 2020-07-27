@@ -1,7 +1,7 @@
 <template>
   <div class="demo">
     <h3>{{demo}}</h3>
-    
+
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: 'demo',
   data () {
     return {
-      demo:"this is a demo page"
+      demo: "this is a demo page"
     }
   },
   methods: {
@@ -20,7 +20,7 @@ export default {
     ...mapMutations(['setUserInfo']),
 
   },
-  created() {
+  created () {
     console.log(this.$store.state)
     console.log(this.userInfo)
     // this.$session.set('userInfo',{name:"lesley"});
@@ -28,27 +28,26 @@ export default {
     // this.setUserInfo({ userName: 'lesley', userId: 134534 });
     // this.$store.commit('setUserInfo', { userName: 'lesley', userId: 1345345345 });
     // 2s 之后返回双倍的值
-    function doubleAfter2seconds(num) {
-        // return new Promise((resolve, reject) => {
-            // setTimeout(() => {
-                return {name: "await func"}
-            // }, 2000);
-        // } )
+    function doubleAfter2seconds (num) {
+      // return new Promise((resolve, reject) => {
+      // setTimeout(() => {
+      return { name: "await func" }
+      // }, 2000);
+      // } )
     }
-    async function timeout() {
+    async function timeout () {
       let result = await doubleAfter2seconds(30);
-    // console.log(result);
-      if(result.name){
+      // console.log(result);
+      if (result.name) {
         console.log(result.name);
-      }else{
+      } else {
         console.log(result);
       }
     }
     timeout();
-    console.log(123);
   },
   computed: mapState({
-    userInfo: state=>state.common.userInfo,
+    userInfo: state => state.common.userInfo,
 
     // 传字符串参数 'userInfo' 等同于 `state => state.userInfo`
     // userInfoAlias: 'userInfo',
@@ -64,26 +63,31 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-  h3{font-size:18px;font-weight:400}
-  button { width: .5rem; }
-  ul{
-    display: flex;
-    flex:1;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding:30px;
-    height: 10rem;
-    overflow-y: scroll;
-    align-content:flex-start;
-    align-items:flex-start;
-    li {
-      width:45%;
-      font-size:14px;
-      margin-bottom:20px;
-      img {
-        width:100%;
-        margin-top:15px;
-      }
+h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+button {
+  width: 0.5rem;
+}
+ul {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px;
+  height: 10rem;
+  overflow-y: scroll;
+  align-content: flex-start;
+  align-items: flex-start;
+  li {
+    width: 45%;
+    font-size: 14px;
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      margin-top: 15px;
     }
   }
+}
 </style>

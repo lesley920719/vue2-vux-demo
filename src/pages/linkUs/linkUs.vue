@@ -46,9 +46,17 @@
                 </div>
               </div>
             </div>
-            <baidu-map id="baiduMap" ak="fugbGzfq0TYLSBVfYDGHcLyQ7svSHi05" :center="center" :zoom="zoom" :scroll-wheel-zoom="true">
+            <baidu-map id="baiduMap"
+                       ak="fugbGzfq0TYLSBVfYDGHcLyQ7svSHi05"
+                       :center="center"
+                       :zoom="zoom"
+                       :scroll-wheel-zoom="true">
               <bm-marker :position="center">
-                <bm-label content="深圳市南山区世界之窗" :position="center" :labelStyle="{color: 'red', fontSize : '10px', border: 0}" :offset="{width: 20, height: 0}" title="深圳市南山区世界之窗"/>
+                <bm-label content="深圳市南山区世界之窗"
+                          :position="center"
+                          :labelStyle="{color: 'red', fontSize : '10px', border: 0}"
+                          :offset="{width: 20, height: 0}"
+                          title="深圳市南山区世界之窗" />
               </bm-marker>
             </baidu-map>
           </div>
@@ -318,41 +326,41 @@ export default {
   data () {
     return {
       contactType: '0', // 初始显示tab
-      center: {lng: "113.979399",lat: "22.540746"}, // 经纬度
+      center: { lng: "113.979399", lat: "22.540746" }, // 经纬度
       zoom: 14, // 缩放等级
     }
   },
-  mounted() {
+  mounted () {
     //tab导航
     let _this = this;
-      new SwiperSlide('.link_box .swiper-container', {
-        autoHeight: true, //高度随内容变化
-        pagination: { //分页器
-          el: '.link_box .swiper-pagination', //分页器容器的css选择器或HTML标签，不同Swiper的组件应该有所区分
-          clickable : true,  //点击分页器的指示点分页器会控制Swiper切换。
+    new SwiperSlide('.link_box .swiper-container', {
+      autoHeight: true, //高度随内容变化
+      pagination: { //分页器
+        el: '.link_box .swiper-pagination', //分页器容器的css选择器或HTML标签，不同Swiper的组件应该有所区分
+        clickable: true,  //点击分页器的指示点分页器会控制Swiper切换。
+      },
+      speed: 500,
+      on: {
+        slideChangeTransitionStart: function () { //从当前slide开始过渡到另一个slide时执行的回调函数
+          // $(".link_tab .activeColor").removeClass('activeColor');
+          // $(".link_tab li").eq(this.activeIndex).addClass('activeColor');
+          console.log(this.activeIndex);
+          _this.contactType = this.activeIndex
         },
-        speed : 500,
-        on: {
-          slideChangeTransitionStart: function(){ //从当前slide开始过渡到另一个slide时执行的回调函数
-            // $(".link_tab .activeColor").removeClass('activeColor');
-            // $(".link_tab li").eq(this.activeIndex).addClass('activeColor');
-            console.log(this.activeIndex);
-            _this.contactType = this.activeIndex
-          },
-        },
-      });
+      },
+    });
   },
-  created() {
-    
+  created () {
+
   },
   methods: {
-    
+
   },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="less">
+<style lang="less" scoped>
 @import '../../assets/less/swiper.min.css'; //main.js引入时报错：Module not found: Error: Can't resolve 'swiper/dist/css/swiper.min.css' （样式文件放入静态文件夹引入）
 @import '../../assets/less/mixin.less';
 @import '../../assets/less/theme.less';
