@@ -1,7 +1,5 @@
 @charset "utf-8";
 html {
-  color: #000;
-  background: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }
@@ -11,20 +9,22 @@ html * {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   box-sizing: border-box;
-  user-select: none;
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
-  /* font-family: sans-serif; */
-  font-family: PingFangSC-Regular;
   overflow-x: hidden;
+  font-family: PingFang SC, PingFangSC-Regular;
+}
+textarea {
+  font-family: PingFang SC, PingFangSC-Regular;
 }
 
 body {
-  font-size: 12px;
+  font-size: 0.26rem;
+  color: #0e0e0e;
 }
 
 body,
@@ -154,5 +154,71 @@ a:hover {
 
 ins,
 a {
+  color: inherit;
   text-decoration: none;
+}
+
+button,
+input {
+  border: 0;
+  background-color: transparent;
+}
+
+img {
+  vertical-align: middle;
+}
+
+input {
+  line-height: normal;
+  -webkit-appearance: none;
+  transform: translateZ(0);
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #8d9095;
+  font-size: 0.28rem;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  appearance: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 两行文字省略号 */
+.ellipsis-2 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* animated 重置 */
+.animated {
+  animation-duration: 0.5s !important;
 }
