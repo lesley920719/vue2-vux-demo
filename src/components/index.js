@@ -12,6 +12,9 @@ export const vpToTop = require('./top/to-top.vue');
 // nav 滑动导航
 export const vpNavScroll = require('./nav/nav-scroll.vue');
 
+// swipeCell 滑动单元格
+export const swipeCell = require('./swipeCell/swipeCell.vue');
+
 /* 公共组件 */
 export const BaseButton = require('./layout/BaseButton.vue');
 export const Drawer = require('./layout/Drawer.vue');

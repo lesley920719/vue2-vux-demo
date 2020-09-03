@@ -42,7 +42,7 @@
         <swiper-item v-for="(item, index) in swiperList"
                      :key="index">
           <router-link :to="item | linkFilter">
-            <img :src="item.advertImage || require('../../assets/images/default_banner@2x.png')"
+            <img :src="item.advertImage || require('@/assets/images/default_banner@2x.png')"
                  width="100%">
           </router-link>
         </swiper-item>
@@ -93,7 +93,7 @@ export default {
       return this.payStatus === 1;
     },
     imgSrc () {
-      return this.ifSuccess ? require('../../assets/images/right@2x.png') : require('../../assets/images/failure@2x.png')
+      return this.ifSuccess ? require('@/assets/images/right@2x.png') : require('@/assets/images/failure@2x.png')
     }
   },
   methods: {
@@ -122,8 +122,7 @@ export default {
 }
 </script>
 <style lang = 'less' scoped>
-@import "../../assets/less/mixin.less";
-@import "../../assets/less/theme.less";
+@import "~@/assets/less/mixin.less";
 .sucess {
   background: #fff;
 }

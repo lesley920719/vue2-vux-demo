@@ -22,6 +22,7 @@ export default {
         { name: '字母导航', router: 'listView' },
         { name: '树状结构', router: 'tree' },
         { name: 'timeline', router: 'timeline' },
+        { name: 'swipeCell', router: 'swipeCell' },
         { name: 'form', router: 'formCommon' },
       ]
     }

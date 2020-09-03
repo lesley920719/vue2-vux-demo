@@ -24,6 +24,7 @@ const tree = r => require.ensure([], () => r(require('@/pages/demo/tree')), 'tre
 const timeline = r => require.ensure([], () => r(require('@/pages/demo/timeline')), 'timeline') // timeline
 const formCommon = r => require.ensure([], () => r(require('@/pages/demo/form-common')), 'formCommon') // form
 const search = r => require.ensure([], () => r(require('@/pages/demo/search')), 'search') // search
+const swipeCell = r => require.ensure([], () => r(require('@/pages/demo/swipeCell')), 'swipeCell') // swipeCell
 
 export default [
   {
@@ -122,6 +123,15 @@ export default [
     component: search,
     meta: {
       title: 'search',
+      isShowBack: false
+    }
+  },
+  {
+    name: 'swipeCell',
+    path: 'swipeCell',
+    component: swipeCell,
+    meta: {
+      title: 'swipeCell滑块单元格',
       isShowBack: false
     }
   },

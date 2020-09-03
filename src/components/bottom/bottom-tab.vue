@@ -1,41 +1,42 @@
 <template>
-    <div class="bottom">
-        <ul>
-            <li v-for="(item,index) in list" :key="index">
-                <i :class="['icon',item.icon,{active: index === isTab}]" @click="tabHandle(index ,item)"></i>
-                <span :class="{active: index === isTab}">{{item.name}}</span>
-            </li>
-        </ul>
-    </div>
+  <div class="bottom">
+    <ul>
+      <li v-for="(item,index) in list"
+          :key="index">
+        <i :class="['icon',item.icon,{active: index === isTab}]"
+           @click="tabHandle(index ,item)"></i>
+        <span :class="{active: index === isTab}">{{item.name}}</span>
+      </li>
+    </ul>
+  </div>
 </template>
 <script type = 'text/javascript'>
-import {Badge} from "vux";
+import { Badge } from "vux";
 export default {
-    props: ['tabIndex'],
-    data() {
-        return {
-           isTab:0,
-           list:[
-                {name:'首页',icon:'home',path:'/home'},
-                {name:'案例',icon:'cases',path:'/cases'},
-                {name:'关于我们',icon:'aboutUs',path:'/aboutUs'},
-           ],
-        }
-    },
-    methods: {
-        tabHandle (index,item) {
-            this.isTab = index
-            this.$router.push({path: item.path})
-        }
-    },
-    created(){
-        this.isTab = this.tabIndex;
+  props: ['tabIndex'],
+  data () {
+    return {
+      isTab: 0,
+      list: [
+        { name: '首页', icon: 'home', path: '/home' },
+        { name: '案例', icon: 'cases', path: '/cases' },
+        { name: '关于我们', icon: 'aboutUs', path: '/aboutUs' },
+      ],
     }
+  },
+  methods: {
+    tabHandle (index, item) {
+      this.isTab = index
+      this.$router.push({ path: item.path })
+    }
+  },
+  created () {
+    this.isTab = this.tabIndex;
+  }
 }
 </script>
 <style lang ="less" scoped>
-@import '../../assets/less/mixin.less';
-@import '../../assets/less/theme.less';
+@import '~@/assets/less/mixin.less';
 .bottom {
     position: fixed;
     height: 1rem;

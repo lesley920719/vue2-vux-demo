@@ -9,20 +9,20 @@ export default {
   name: 'keepAliveC',
   data () {
     return {
-      
+
     }
   },
   methods: {
 
   },
-  beforeRouteLeave(to, from, next) {
-      // 设置下一个路由的 meta
-      to.meta.keepAlive = false;  // C 跳转到 A 时，让 A 不缓存，即刷新
-      to.meta.title = "keep-alive C - A"
-      next();
+  beforeRouteLeave (to, from, next) {
+    // 设置下一个路由的 meta
+    to.meta.keepAlive = false;  // C 跳转到 A 时，让 A 不缓存，即刷新
+    to.meta.title = "keep-alive C - A"
+    next();
   },
-  created() {
-    
+  created () {
+
   },
   computed: {
 
@@ -32,7 +32,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style  lang="less" scoped>
-@import '../../assets/less/mixin.less';
-@import '../../assets/less/theme.less';
-button {outline:none;border:none; background: @theme-red;color:#fff;display: block;line-height: .4rem;padding:0 1rem;margin-bottom:.3rem;}
+button {
+  outline: none;
+  border: none;
+  background: @theme-red;
+  color: #fff;
+  display: block;
+  line-height: 0.4rem;
+  padding: 0 1rem;
+  margin-bottom: 0.3rem;
+}
 </style>

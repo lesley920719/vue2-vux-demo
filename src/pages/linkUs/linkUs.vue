@@ -361,9 +361,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-@import '../../assets/less/swiper.min.css'; //main.js引入时报错：Module not found: Error: Can't resolve 'swiper/dist/css/swiper.min.css' （样式文件放入静态文件夹引入）
-@import '../../assets/less/mixin.less';
-@import '../../assets/less/theme.less';
+@import '~@/assets/less/swiper.min.css'; //main.js引入时报错：Module not found: Error: Can't resolve 'swiper/dist/css/swiper.min.css' （样式文件放入静态文件夹引入）
+@import '~@/assets/less/mixin.less';
 .content {padding-bottom: 0!important}
 .link{
   .link_box {

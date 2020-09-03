@@ -45,8 +45,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/less/mixin.less";
-@import "../../assets/less/theme.less";
+@import "~@/assets/less/mixin.less";
 .join_us {
   .join_info {
     width: 6.4rem;

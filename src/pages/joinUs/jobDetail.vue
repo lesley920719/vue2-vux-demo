@@ -51,8 +51,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/less/mixin.less";
-@import "../../assets/less/theme.less";
+@import "~@/assets/less/mixin.less";
 .jump-go-enter-active {
   transition: all 0.5s ease;
 }

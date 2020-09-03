@@ -195,8 +195,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "../../assets/less/mixin.less";
-@import "../../assets/less/theme.less";
+@import "~@/assets/less/mixin.less";
 .eCommerce {
   .page_icon_title {
     margin-bottom: 0.5rem;

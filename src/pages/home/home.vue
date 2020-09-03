@@ -185,8 +185,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
-@import "../../assets/less/mixin.less";
-@import "../../assets/less/theme.less";
+@import "~@/assets/less/mixin.less";
 .content {
   padding-bottom: 1rem !important;
 }
