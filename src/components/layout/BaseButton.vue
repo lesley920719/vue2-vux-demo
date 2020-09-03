@@ -1,6 +1,8 @@
 <template>
-  <button type="button" :style="`height:${height};line-height:${height}`" :class="['common-btn',color , styleClass, {'radius':radius,'disable':disable}]"
-    @click="clickAction">
+  <button type="button"
+          :style="`height:${height};line-height:${height}`"
+          :class="['common-btn',color , styleClass, {'radius':radius,'disable':disable}]"
+          @click="clickAction">
     {{ content }}
   </button>
 </template>
@@ -10,7 +12,7 @@ export default {
   name: 'BaseButton',
 
   methods: {
-    clickAction() {
+    clickAction () {
       if (this.disable) return
       this.$emit('click')
     }
@@ -43,11 +45,7 @@ export default {
 
 </script>
 <style lang="less" scoped>
-
-@import '../../assets/less/theme.less';
-
 @theme-2: red;
-
 .common-btn {
   display: block;
   font-size: 0.28rem;
@@ -83,5 +81,4 @@ export default {
     background: #ccc;
   }
 }
-
 </style>

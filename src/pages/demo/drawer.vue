@@ -8,12 +8,13 @@
     <Drawer v-model="isBallType">
       <ul class="drawer-list">
         <li class="item"
-        v-for="(item, index) in ballList"
-        :key="index"
-        @click="chooseBallType(item.name, item.code)">
+            v-for="(item, index) in ballList"
+            :key="index"
+            @click="chooseBallType(item.name, item.code)">
           {{ item.name }}
         </li>
-        <li class="item" @click="isBallType = false">
+        <li class="item"
+            @click="isBallType = false">
           取消
         </li>
       </ul>
@@ -27,27 +28,27 @@ export default {
   data () {
     return {
       ballList: [
-        {name:'足球',code:'soccer'},
-        {name:'篮球',code:'basketball'},
-        {name:'排球',code:'volleyball'},
-        {name:'乒乓球',code:' tableTennis'},
-        {name:'羽毛球',code:'badminton'},
+        { name: '足球', code: 'soccer' },
+        { name: '篮球', code: 'basketball' },
+        { name: '排球', code: 'volleyball' },
+        { name: '乒乓球', code: ' tableTennis' },
+        { name: '羽毛球', code: 'badminton' },
       ],
       likeBall: "请选择你最爱的球类运动",
       isBallType: false,   // 显示弹窗
     }
   },
   methods: {
-    chooseBallType(name,code){
+    chooseBallType (name, code) {
       this.likeBall = name
       this.isBallType = false
     }
   },
-  created() {
-    
+  created () {
+
   },
   computed: {
-    
+
 
   },
 }
@@ -55,23 +56,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang ="less" scoped>
-@import '../../assets/less/mixin.less';
-@import '../../assets/less/theme.less';
+@import "~@/assets/less/mixin.less";
 .drawer {
-  .ball_btn{
+  .ball_btn {
     position: relative;
     width: 100%;
-    height: .98rem;
-    line-height: .98rem;
-    border-bottom: 1px solid #DFDFDF;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    border-bottom: 1px solid #dfdfdf;
     button {
       border: 0;
       background-color: transparent;
       display: block;
       width: 100%;
       height: 100%;
-      color: #C2C2C2;
-      font-size: .28rem;
+      color: #c2c2c2;
+      font-size: 0.28rem;
       text-align: left;
     }
     /* 右箭头 */
@@ -79,8 +79,8 @@ export default {
       position: absolute;
       right: 4%;
       top: 45%;
-      width: .2rem;
-      height: .2rem;
+      width: 0.2rem;
+      height: 0.2rem;
       border: solid #999;
       border-width: 1px 1px 0 0;
       transform: rotate(45deg);
@@ -92,14 +92,14 @@ export default {
 
     .item {
       width: 100%;
-      height: .86rem;
-      border-bottom: 1px solid #DFDFDF;
+      height: 0.86rem;
+      border-bottom: 1px solid #dfdfdf;
 
       text-align: center;
-      line-height: .86rem;
+      line-height: 0.86rem;
 
       &:last-child {
-        background-color: #EDEDED;
+        background-color: #ededed;
       }
     }
   }

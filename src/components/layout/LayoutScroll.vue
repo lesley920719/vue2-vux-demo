@@ -1,6 +1,7 @@
 <template>
   <div class="layout-scroll">
-    <div :id="scrollId || 'minirefresh'" class="minirefresh-wrap">
+    <div :id="scrollId || 'minirefresh'"
+         class="minirefresh-wrap">
       <div class="minirefresh-scroll">
         <div>
           <slot></slot>
@@ -19,16 +20,16 @@ export default {
     down: Function,
     scrollId: String // 解决实例化id相同造成的冲突
   },
-  data() {
+  data () {
     return {
       minirefresh: null
     };
   },
-  mounted() {
+  mounted () {
     this.init()
   },
   methods: {
-    init() {
+    init () {
       const self = this;
       // eslint-disable-next-line
       self.miniRefresh = new MiniRefresh({
@@ -37,7 +38,7 @@ export default {
         down: {
           isLock: true,
           // isAutoResetUpLoading: true,
-          callback() {
+          callback () {
             console.log('=======================')
             setTimeout(() => {
               self.endDownLoading(true)
@@ -46,7 +47,7 @@ export default {
         },
         up: {
           isAuto: true,
-          callback() {
+          callback () {
             // 上拉事件
             self.$emit('unEvent')
             // 注意，由于默认情况是开启满屏自动加载的，所以请求失败时，请务必endUpLoading(true)，防止无限请求
@@ -59,19 +60,19 @@ export default {
         }
       });
     },
-    triggerUpLoading() {
+    triggerUpLoading () {
       this.miniRefresh.triggerUpLoading()
     },
-    triggerDownLoading() {
+    triggerDownLoading () {
       this.miniRefresh.triggerDownLoading()
     },
-    endDownLoading(end) {
+    endDownLoading (end) {
       this.miniRefresh.endDownLoading(end)
     },
-    endUpLoading(end) {
+    endUpLoading (end) {
       this.miniRefresh.endUpLoading(end)
     },
-    resetUpLoading() {
+    resetUpLoading () {
       this.miniRefresh.resetUpLoading()
     }
   }
@@ -79,7 +80,6 @@ export default {
 
 </script>
 <style lang='less' scoped>
-@import '../../assets/less/theme.less';
 /**
  * showcase通用样式
  */
