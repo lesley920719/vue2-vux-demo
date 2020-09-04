@@ -25,7 +25,6 @@ function install (Vue, options) {
     // bind声明周期, 只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置
     bind (el, binding, vnode, oldVnode) {
       function handlerEvent (e) {
-        console.log(binding, vnode, 'click');
         // 这里判断点击的元素是否是本身，是本身，则返回
         if (el.contains(e.target)) {
           return false;
