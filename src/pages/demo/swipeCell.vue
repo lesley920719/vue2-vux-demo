@@ -15,7 +15,7 @@
       </template>
       <template #swipe-cell-right>
         <div class="btn edit"
-             @click="editDanger(content)">
+             @click="editDanger('内容1')">
           <img src="~@/assets/images/default/edit.png"
                alt="edit.png" />
           <span>编辑</span>
@@ -45,6 +45,12 @@ export default {
     }
   },
   methods: {
+    // 编辑按钮
+    editDanger (content) {
+      console.log('编辑', content);
+      this.$vux.alert.show('编辑' + content);
+      // this.$refs['swipe-cell2'].restSlide();
+    },
     deleteDanger (content) {
       this.$vux.confirm.show({
         title: '提示',

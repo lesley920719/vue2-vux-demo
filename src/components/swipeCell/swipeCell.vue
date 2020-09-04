@@ -16,6 +16,12 @@
     <div class="btn-box flex"
          ref="swipe-cell-right">
       <slot name="swipe-cell-right">
+        <!-- <div class="btn edit"
+             @click="editDanger(content)">
+          <img src="~@/assets/images/default/edit.png"
+               alt="edit.png" />
+          <span>编辑</span>
+        </div> -->
         <div class="btn del"
              @click="deleteDanger(content)">
           <img :src="require('@/assets/images/default/delete.png')"
@@ -45,7 +51,7 @@ export default {
     },
     minDistance: {
       type: Number,
-      default: 20
+      default: 30
     }
   },
   data () {
@@ -67,7 +73,7 @@ export default {
     },
   },
   mounted () {
-    // this.bindTouchEvent(this.$el);
+
   },
   methods: {
     getWidthByRef (ref) {
@@ -77,23 +83,11 @@ export default {
       }
       return 0;
     },
-    bindTouchEvent (el) {
-      const { touchStart, touchMove, touchEnd } = this;
-
-      on(el, 'touchstart', touchStart);
-      on(el, 'touchmove', touchMove);
-
-      if (touchEnd) {
-        on(el, 'touchend', touchEnd);
-        on(el, 'touchcancel', touchEnd);
-      }
-    },
     // 触摸开始
     touchStart (event) {
       if (this.disabled) {
         return;
       }
-      this.restSlide();
       // 记录初始位置
       this.startX = event.touches[0].clientX;
     },
@@ -119,20 +113,18 @@ export default {
       let parentElement = event.currentTarget.parentElement;
       // 记录结束位置
       this.endX = event.changedTouches[0].clientX;
-      // 关闭状态时 -- 左滑打开
-      if (!this.swipeStatus && this.startX - this.endX > this.minDistance) {
+      let _delTax = Math.abs(this.endX - this.startX);
+      if (!this.swipeStatus && _delTax > this.minDistance) {  // 关闭状态时 -- 左滑距离超过minDistance则打开
         this.swipeStatus = true;  // 打开
         this.offsetX = 0 - this.computedRightWidth;
         // parentElement.setAttribute('style', `transform: translate3d(-${this.computedRightWidth}px, 0, 0)`);
-      } else {
+      } else if (this.swipeStatus && _delTax < this.minDistance) {  // 打开状态时 -- 右滑距离不超过minDistance时维持打开状态
+        this.offsetX = 0 - this.computedRightWidth;
+      } else {  // 重置为关闭状态
         this.restSlide();
       }
-
-      // if (this.swipeStatus && this.startX - this.endX < -this.minDistance) {  // 打开状态时 -- 右滑关闭
-      //   this.restSlide();
-      // }
     },
-    restSlide () {  // 状态重置
+    restSlide () {  // 状态重置--关闭
       this.startX = 0;
       this.endX = 0;
       this.offsetX = 0;
